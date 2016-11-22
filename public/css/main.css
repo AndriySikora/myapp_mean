@@ -1,0 +1,11 @@
+#header {
+  background-color: #6c94be;
+  width: 100px;
+  height: 100px;
+}
+#button {
+  background-color: yellow;
+}
+#buttonGet {
+  color: green;
+}
