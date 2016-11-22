@@ -7,11 +7,13 @@ var url = 'mongodb://localhost:27017/test';
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 mongoose.connect(url);
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  console.log('we are connected');
+  console.log('we are connected to mongo');
 });
+
 var carsSchema = new Schema({
   number: Number,
   make: String,
