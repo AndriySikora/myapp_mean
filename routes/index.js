@@ -59,13 +59,18 @@ router.get('/api/cars/:cars_id', function(req, res, next) {
      res.json(cars);
   });
 });
-// change number of car in cars db
+// change data of car in cars db
 router.put('/api/cars/:cars_id', function (req, res) {
   var id = req.params.cars_id;
   Cars.findById(id, function(err, cars) {
     if(err)
       res.send(err);
       cars.number = req.body.number;
+      cars.make = req.body.make;
+      cars.owner = req.body.owner;
+      cars.phone = req.body.phone;
+      cars.arriveDate = req.body.arriveDate;
+      cars.departureDate = req.body.departureDate;
       cars.save(function(err) {
         if(err)
          res.send(err);
