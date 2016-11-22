@@ -4,15 +4,15 @@ var watch = require('gulp-watch');
 var path = require('path');
 
 gulp.task('less', function() {
-  return gulp.src('.less/*.less')
+  return gulp.src('public/less/*.less')
     .pipe(less({
       paths: [path.join(__dirname, 'less', 'includes') ]
     }))
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('public/css'));
 });
 
 gulp.task('watch', function() {
-  gulp.watch('less/*.less', ['less']);
+  gulp.watch('public/less/*.less', ['less']);
 });
 
 gulp.task('default', ['watch', 'less']);
