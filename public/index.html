@@ -1,17 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="parkingApp">
 <head>
 	<meta charset="utf-8">
 	<title>Parking system</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet/less" type="text/css" href="less/main.less">
-	<script type="text/javascript" src="node_modules/angular/angular.js"></script>
+	<link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<script type="text/javascript" src="javascripts/libs/jquery-3.1.1.min.js"></script>
-	<script type="text/javascript" src="javascripts/global.js"></script>
 </head>
-<body ng-app="parkingApp" ng-controller="">
-	<button id="button">Add cars</button>
-	<button id="buttonGet">Get DB cars</button>
-	<div id="header">container</div>
+<body>
+	<div class="container" ng-controller="AppCtrl">
+		<div class="container-fullwidth">
+		  <nav class="navbar navbar-light bg-faded">
+		    <ul class="nav navbar-nav">
+		      <li class="nav-item active">
+		        <a class="nav-link" ui-sref="cars">Cars</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" ui-sref="owners">Owners</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" ui-sref="contact-us">Contact us</a>
+		      </li>
+		    </ul>
+		  </nav>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Car number</th>
+						<th>Car make</th>
+						<th>Name of owner</th>
+						<th>Phone number</th>
+						<th>Arrive date</th>
+						<th>Departure date</th>
+					</tr>
+				</thead>
+				<tbody>
+						<tr ng-repeat="car in carList">
+								<td>{{car.number}}</td>
+								<td>{{car.make}}</td>
+								<td>{{car.owner}}</td>
+								<td>{{car.phone}}</td>
+								<td>{{car.arriveDate}}</td>
+								<td>{{car.departureDate}}</td>
+						</tr>
+				</tbody>
+		</table>
+			<button id="button">Add cars</button>
+			<button id="buttonGet">Get DB cars</button>
+			<input ng-model="test">
+			{{test}}
+	</div>
+</div>
+<script src="../node_modules/angular/angular.js"></script>
+<script src="controllers/controller.js"></script>
+<script type="text/javascript" src="javascripts/global.js"></script>
 </body>
 </html>
