@@ -65,12 +65,12 @@ router.put('/api/cars/:cars_id', function (req, res) {
   Cars.findById(id, function(err, cars) {
     if(err)
       res.send(err);
-      cars.number = req.body.number;
-      cars.make = req.body.make;
-      cars.owner = req.body.owner;
-      cars.phone = req.body.phone;
-      cars.arriveDate = req.body.arriveDate;
-      cars.departureDate = req.body.departureDate;
+          cars.number = req.body.number;
+          cars.make = req.body.make;
+          cars.owner = req.body.owner;
+          cars.phone = req.body.phone;
+          cars.arriveDate = req.body.arriveDate;
+          cars.departureDate = req.body.departureDate;
       cars.save(function(err) {
         if(err)
          res.send(err);
@@ -91,5 +91,4 @@ router.delete('/api/cars/:cars_id', function (req, res) {
       res.json({ message : 'Succesfully deleted' });
   });
 });
-
 module.exports = router;
