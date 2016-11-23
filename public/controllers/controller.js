@@ -10,4 +10,9 @@ parkingApp.controller('AppCtrl', ['$scope', '$http',
       console.log('GET request is failed');
     });
 
+    $scope.addCar = function() {
+      console.log($scope.car);
+      $http.post('/api/cars', $scope.car);
+    }
+
   }]);
