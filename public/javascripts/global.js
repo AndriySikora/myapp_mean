@@ -8,11 +8,4 @@ $(document).ready(function(){
 			console.log("request is not send");
 		});
 	});
-
-	// $('buttonGet').on('click', function() {
-	// 	$.get(server+'/cars', function(data) {
-	// 		console.log("Data loaded" + data);
-	// 	});
-	// });
-
 });
