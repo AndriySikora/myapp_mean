@@ -33,10 +33,18 @@
 						<th>Phone number</th>
 						<th>Arrive date</th>
 						<th>Departure date</th>
-						<th>Exit</th>
+						<!-- <th>Exit</th> -->
 					</tr>
 				</thead>
-			<tbody id="parkingLot">
+			<tbody>
+					<tr ng-repeat="car in carList">
+							<td>{{car.id}}</td>
+							<td>{{car.make}}</td>
+							<td>{{car.owner}}</td>
+							<td>{{car.phone}}</td>
+							<td>{{car.arriveDate}}</td>
+							<td>{{car.departureDate}}</td>
+					</tr>
 			</tbody>
 		</table>
 			<button id="button">Add cars</button>
