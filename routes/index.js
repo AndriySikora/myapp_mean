@@ -85,11 +85,11 @@ router.delete('/api/cars/:cars_id', function (req, res) {
   var id = req.params.cars_id;
   Cars.remove({
     _id: id
-  }, function(err, cars) {
+  }, function(err, car) {
     if(err)
       res.send(err);
 
-      res.json({ message : 'Succesfully deleted' });
+      res.json(car);
   });
 });
 module.exports = router;

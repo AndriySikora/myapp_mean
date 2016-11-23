@@ -34,6 +34,7 @@
 						<th>Arrive date</th>
 						<th>Departure date</th>
 						<th>Action</th>
+						<th>&nbsp</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -45,6 +46,7 @@
 								<td><input class="form-control" ng-model="car.arriveDate"></td>
 								<td><input class="form-control" ng-model="car.departureDate"></td>
 								<td><button class="btn btn-primary" ng-click="addCar()">Add car</button></td>
+								<td><button class="btn btn-info" ng-click="update()">Update</button></td>
 						</tr>
 						<tr ng-repeat="car in carList">
 								<td>{{car.number}}</td>
@@ -53,6 +55,8 @@
 								<td>{{car.phone}}</td>
 								<td>{{car.arriveDate}}</td>
 								<td>{{car.departureDate}}</td>
+								<td><button class="btn btn-danger" ng-click="removeCar(car._id)">Remove</button></td>
+								<td><button class="btn btn-warning" ng-click="editCar(car._id)">Edit</button></td>
 						</tr>
 				</tbody>
 		</table>
