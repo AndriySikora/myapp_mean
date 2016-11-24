@@ -22,6 +22,7 @@ var carsSchema = new Schema({
   arriveDate: String,
   departureDate: String
 });
+
 var Cars = mongoose.model('Cars', carsSchema);
 //get all cars from db
 router.get('/api/cars', function(req, res, next) {
@@ -60,26 +61,6 @@ router.get('/api/cars/:cars_id', function(req, res, next) {
      res.json(cars);
   });
 });
-// change data of car in cars db
-router.put('/api/cars/:cars_id', function (req, res) {
-  var id = req.params.cars_id;
-  Cars.findById(id, function(err, cars) {
-    if(err)
-      res.send(err);
-          cars.number = req.body.number;
-          cars.make = req.body.make;
-          cars.owner = req.body.owner;
-          cars.phone = req.body.phone;
-          cars.arriveDate = req.body.arriveDate;
-          cars.departureDate = req.body.departureDate;
-      cars.save(function(err) {
-        if(err)
-         res.send(err);
-
-         res.json( {message : 'Car updated! '});
-      });
-  });
-});
 // delete car from cars db
 router.delete('/api/cars/:cars_id', function (req, res) {
   var id = req.params.cars_id;
@@ -92,4 +73,31 @@ router.delete('/api/cars/:cars_id', function (req, res) {
       res.json(car);
   });
 });
+
+router.get('/api/cars/:cars_id', function (req, res) {
+  var id = req.params.cars_id;
+  Cars.findOne({
+    _id: id
+  }, function(err, car) {
+    if(err)
+      res.send(err);
+
+      res.json(car);
+  });
+});
+
+// change data of car in cars db
+router.put('/api/cars/:cars_id', function (req, res) {
+  var id = req.params.cars_id;
+  console.log(req.body.owner);
+  Cars.findOneAndUpdate({_id : id}, { $set: {number : req.body.number, make : req.body.make, owner : req.body.owner, phone : req.body.phone, arriveDate : req.body.arriveDate, departureDate : req.body.departureDate}}, {new : true},
+    function(err, car) {
+        if(err)
+          res.send(err);
+
+          console.log(car);
+          res.json(car);
+      });
+  });
+
 module.exports = router;
