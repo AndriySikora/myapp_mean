@@ -4,7 +4,6 @@ parkingApp.controller('AppCtrl', ['$scope', '$http',
 
   var refresh = function() {
       $http.get('/api/cars').then(function successCallback(response) {
-        console.log('I got data I requested');
         $scope.carList = response.data;
         $scope.car = "";
       }, function errorCallback(response) {
@@ -17,7 +16,6 @@ parkingApp.controller('AppCtrl', ['$scope', '$http',
     $scope.addCar = function() {
       console.log($scope.car);
       $http.post('/api/cars', $scope.car).then(function successCallback(response) {
-        console.log(response);
         refresh();
       }, function errorCallback(response) {
         console.log('POST request is failed');
@@ -25,7 +23,6 @@ parkingApp.controller('AppCtrl', ['$scope', '$http',
     };
 
     $scope.removeCar = function(id) {
-      console.log(id);
       $http.delete('/api/cars/' + id).then(function successCallback(response) {
         refresh();
       }, function errorCallback(response) {

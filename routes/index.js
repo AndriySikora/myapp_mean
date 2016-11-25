@@ -49,7 +49,6 @@ router.post('/api/cars', function (req, res, next) {
     }
     res.json(carsDb);
   });
-//res.redirect('/')
 });
 //get car from cars db by id
 router.get('/api/cars/:cars_id', function(req, res, next) {
